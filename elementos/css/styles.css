@@ -6,7 +6,7 @@
 
 /*===== VARIABLES CSS =====*/
 :root {
-    --header-height: 3rem;
+    --header-height: 8rem;
     --font-semi: 750;
     /*===== Colores =====*/
     /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
@@ -73,20 +73,39 @@ img {
 
 /*===== reusable CSS ===== */
 .section {
-    padding-top: 3rem;
-    padding-bottom: 2rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.5rem;
 }
 
-.section-title {
+.section__title {
     position: relative;
     font-size: var(--h2-font-size);
     color: var(--first-color);
-    margin-top: var(--mb-2);
-    margin-bottom: var(--mb-4);
+    
+    margin-bottom: 0.5%;
     text-align: center;
+    text-decoration: none;
+}
+
+.section__subtitle {
+
+    display: block;
+    position: relative;
+    font-size: var(--body-font);
+    color: var(--third-color);
+    
+    text-align: center;
+    text-decoration: none;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    
+    
 }
   
-.section-title::after {
+.section__title::after {
+    
     position: absolute;
     content: '';
     width: 64px;
@@ -97,6 +116,10 @@ img {
     top: 2rem;
     background-color: var(--first-color);
 }
+
+
+
+
   
 
   
@@ -107,31 +130,7 @@ img {
     margin-right: var(--mb-2);
 }
 
-/*
-.grid{
-    display: grid;
-    gap: 1.5rem;
-}
-*/
 
-/*
-.bd-grid {
-    max-width: 1024px;
-    display: grid;
-    margin-left: var(--mb-2);
-    margin-right: var(--mb-2);
-}
-  
-.l-header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: var(--z-fixed);
-    background-color: #fff;
-    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
-}
-*/
 
 /*======================= =======================  nav bar =======================  =======================  */
 
@@ -156,10 +155,20 @@ img {
   background-color: rgba(33, 105, 177, 0.15);
 }
 
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 25% ;
+    border-radius: 50%;
+}
+
 .nav__logo {
     color: var(--second-color);
-    padding: 0 100px 0px 100px;
-    font-size: 250%;
+    padding: 0 45px 0px 45px;
+    font-size: 85%;
 }
 
 .nav__logo:hover {
@@ -180,13 +189,15 @@ a.nav__item,a:hover{
     transition: .5s;
 }
   
+/*===== medium and small nav bar =====*/
 .nav__toggle {
-    display: none;
+    /*display: none;*/
     color: var(--second-color);
     font-size: 1.5rem;
     cursor: pointer;
 
     float: right;
+    
 }
 
 
@@ -197,28 +208,56 @@ a.nav__item,a:hover{
     cursor: pointer;
 }
 
-@media screen and (max-width: 767px) {
+
+.nav__close{
+    display: none;
+    position: absolute;
+    right: 1.3rem;
+    bottom: .5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color:var(--first-color);
+}
+
+
+@media screen and (max-width: 768px) {
     .header{
-        height: 48px;
+        height: 8rem;
         justify-content: space-between;
         padding: 0 28px;
     }
 
+   
+
     .nav__logo {
-        width: 30px;
-        font-size: var(--body-font);
+        display: none;
+    }
+
+    .logo{
+        position: absolute;
+        top: 0;
+        
     }
 
 
-    .header__toggle{
-        display: inline;
-        color: var(--second-color);
-        font-size: 1.5rem;
+    .nav__toggle{
+        display: flex;
+        color: var(--first-color);
+        position: absolute;
+        top: 0;
+        font-size: 2rem;
         cursor: pointer;
 
     }
 
-    .header__close{
+    .nav__toggle:hover {
+        color: var(--third-color);
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    
+    .nav__close{
         position: absolute;
         right: 24px;
         display: block;
@@ -226,19 +265,20 @@ a.nav__item,a:hover{
         border-radius: 50%;
 
     }
-    .header__close:hover{
-        background-color: rgba(10, 72, 134, 0.15);
+    .nav__close:hover{
+        background-color: #0a488626;
 
     }
 
     .nav{
-        position: fixed;
+        position: absolute;
         top:0;
-        background-color: rgba(19, 31, 43, 0.15);
+        right: -5px;
+        background-color: #131f2b26;
         color: #fff;
-        width: 60%;
-        height: 100vh;
-        padding: 24px 0;
+        width: 70%;
+        height: 85vh;
+        padding: 0 0;
         z-index: 100;
         transition: .5s;
         border-radius: 0 0 0 50%;
@@ -252,13 +292,21 @@ a.nav__item,a:hover{
 
     .show{
         right: 0;
+        
     }
 
     .nav__menu{
         display: none;
     } 
 
+    .nav_item{
+        margin: 2rem 0;
+    }
+
 }
+
+
+
 
 .nav__menu__stretch {
     display: none;
@@ -297,32 +345,22 @@ a.nav__item,a:hover{
     font-size: 1.2rem;
 }
 
-.nav__close{
-    display: none;
-    position: absolute;
-    right: 1.3rem;
-    bottom: .5rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color:var(--first-color);
-}
+
 
 /*======================= =======================  home =======================  =======================  */
 
 .home__container{
-    
     position: relative;
-    
-    
 }
 
 .home__content{
     grid-template-columns: .5fr 3fr;
-    /*padding-top: 3.5rem; */
+    padding-top: 3.5rem; 
     align-items: center;
 }
 
 .home__social{
+    
     display:grid;
     grid-template-columns: max-content;
     row-gap: 1rem;
@@ -342,7 +380,7 @@ a.nav__item,a:hover{
 
 
 .home__blob{
-    width: 250px;
+    width: 200px;
     fill: var(--first-color);
 }
 
@@ -423,9 +461,78 @@ a.nav__item,a:hover{
     display: inline-flex;
     align-items: center;
 }
+/*======================= =======================  about=======================  =======================  */
+.cont__about__img{
+    display: block;
+}
+
+.about__img{
+    width: 80%;
+    border-radius: .5rem;
+    justify-self: center;
+    align-self: center ;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about__description{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.about__info{
+    display: flex;
+    justify-content: space-evenly;
+
+    grid-gap: 20px;
+    
+}
+
+.about__info-title{
+    display: block;
+    text-align: center;
+    font-size: var(--body-font);
+    font-weight: bold;
+
+}
+
+.about__info-name{
+    font-size: medium;
+    display: block;
+    text-align: center;
+    
+}
+
+.about__info-time{
+    font-size: small;
+    display: block;
+    text-align: center;
+    font-style: italic;
+    
+}
+
+.about__buttons{
+    display: block;
+    text-align: center;
+
+}
+
 
 
 /*======================= =======================  media queries=======================  =======================  */
+/*small device*/
+@media screen and (max-width:350px) {
+    .container{
+        margin-left: 1rem;
+        margin-right: 1rem ;
+    }
+
+    .nav_menu{
+        padding: 2rem .25rem 4rem;
+    }
+    
+}
 
 
 /*medium device*/

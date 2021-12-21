@@ -1,6 +1,6 @@
 /*======================= hide and show menu =======================  */
 
-const navMenu = document.getElementById('nav-menu'),
+const navMenu = document.getElementById('nav-menu-stretch'),
       navToggle = document.getElementById('nav-toggle'),
       closeMenu = document.getElementById('nav-close')
 
